@@ -3,7 +3,7 @@
 import requests
 
 file = open("cookies.txt", "r")
-cookie = dict(session=file.read())
+cookie = dict(session=file.read().strip())
 r = requests.get('https://adventofcode.com/2021/day/5/input', cookies=cookie)
 data = [line.split(" -> ") for line in r.text.splitlines()]
 

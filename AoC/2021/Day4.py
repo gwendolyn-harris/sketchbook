@@ -3,7 +3,7 @@
 import requests
 
 file = open("cookies.txt", "r")
-cookie = dict(session=file.read())
+cookie = dict(session=file.read().strip())
 r = requests.get('https://adventofcode.com/2021/day/4/input', cookies=cookie)
 data = r.text.splitlines()
 
@@ -23,7 +23,7 @@ class Board:
                     self.bool_board[i][j] = True
                     self.did_i_win()
                     return
-    
+
     def did_i_win(self):
         counter = {0:0, 1:0, 2:0, 3:0, 4:0}
         for row in self.bool_board:
@@ -38,7 +38,7 @@ class Board:
             return
         else:
             return
-    
+
     def get_final_score(self, last_call):
         total = 0
         for i, row in enumerate(self.bool_board):
