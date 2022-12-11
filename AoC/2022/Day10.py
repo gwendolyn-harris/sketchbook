@@ -6,8 +6,9 @@ file = open("cookies.txt", "r")
 cookie = dict(session=file.read().strip())
 r = requests.get('https://adventofcode.com/2022/day/10/input', cookies=cookie)
 
-# Part 1
 commands = r.text.splitlines()
+
+# Part 1
 cycle = 1
 cool_cycles = [20, 60, 100, 140, 180, 220]
 strength_sum = 0
